@@ -30,10 +30,10 @@ func main() {
 	flag.Parse()
 
 	configPath := filepath.Join(homedir.HomeDir(), ".kube", "config")
-
+	
 	var config *rest.Config
 	var err error
-
+	log.Printf("Starting tsns...")
 	if _, err := os.Stat(configPath); errors.Is(err, os.ErrNotExist) {
 		// No config file found, fall back to in-cluster config.
 		config, err = rest.InClusterConfig()
